@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+</head>
+
+<body>
+
+    <!-- Crear una expresión regular que valide una fecha en formato "XX/XX/XXXX", donde "X" es un dígito. Probarlo con la expresión: "Nací el 05/04/1982 en Donostia.". -->
+
+    <script>
+        let frase = "Nací el 05/04/1982 en Donostia.";
+        let fecha = [];
+        let expresion = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+
+        //Función para discriminar la parte de la frase que tiene la fecha
+        function validarFecha(valor) {
+
+            //Bucle para discriminar la fecha
+            for (i = 0; i < frase.length; i++) {
+                if (frase.charAt(i) >= 0 && frase.charAt(i) <= 9 && frase.charAt(i) != ' ') {
+                    fecha.push(frase.substring(i, i + 10));
+                    break;
+                }
+            }
+
+            //Validar la fecha mediante expresión regular
+            if (expresion.test(fecha)) {
+                document.write('La fecha introducida (' + fecha + ') es correcta.');
+            } else {
+                document.write('Error. Formato inválido.');
+            }
+        }
+
+        //Invocar la función validarFecha()
+        validarFecha(frase);
+    </script>
+</body>
+
+</html>
