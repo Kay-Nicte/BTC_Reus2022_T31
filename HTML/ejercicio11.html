@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio11</title>
+</head>
+
+<body>
+    <!-- Escribir un script que simule el lanzamiento de dos dados. Hacer uso de la función Math.random para obtener números aleatorios entre 1 y 6 para cada uno de los lanzamientos de dados. Sumar el resultado de lanzar dos dados y anotar en un array el número de apariciones de dicha suma, repitiendo 36.000 veces esta operación. -->
+    <h1>Ejercicio 11: Tiradas de dados</h1>
+    <p id="contenido"></p>
+    <script>
+        //Fución para generar un random sin decimales
+        function aleatorio(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        //Array de tiradas
+        const tiradas = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const coincidenciasSinRepetir = [];
+
+        //Párrafo de contenido
+        contenido = document.getElementById("contenido");
+
+        //Bucle de 36.000 tiradas
+        for (i = 0; i < 36000; i++) {
+
+            //Declarar los dados y la variable suma 
+            let dado1 = aleatorio(1, 6);
+            let dado2 = aleatorio(1, 6);
+            let suma = dado1 + dado2;
+
+            tiradas[suma - 2]++;
+
+            const elemento = tiradas[suma - 2];
+
+            //Si el número no se repite, añadir a la array coincidenciasSinRepetir
+            if (!coincidenciasSinRepetir.includes(tiradas[suma - 2])) {
+                coincidenciasSinRepetir.push(elemento);
+            }
+        }
+
+        //Mostrar el array final
+        for (x = 0; x < tiradas.length; x++) {
+            contenido.innerHTML += ("Ha salido el número " + (x + 2) + " repetido " + tiradas[x] + " veces.</br>");
+        }
+    </script>
+</body>
+
+</html>
