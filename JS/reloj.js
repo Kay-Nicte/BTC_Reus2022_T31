@@ -1,11 +1,13 @@
 //función principal del reloj
-function relojDigital() {
+function relojJavascript() {
 
     //Obtener la fecha y la hora del sistema
     var fecha = new Date();
     var horas = fecha.getHours();
     var minutos = fecha.getMinutes();
     var segundos = fecha.getSeconds();
+
+    console.log(horas);
 
     //Si sólo es un dígito, poner un 0 delante
     horas = cero(horas);
@@ -22,8 +24,11 @@ function relojDigital() {
     segundosHtml.innerHTML = segundos;
 
     //Actualizar el reloj por segundo
-    setTimeout(function() { relojDigital() }, 1000);
+    setTimeout(function() { relojJavascript() }, 1000);
 }
+
+//Invocar el método relojJavascript
+relojJavascript();
 
 //Función para poner un 0 delante si sólo tiene un dígito
 function cero(valor) {
