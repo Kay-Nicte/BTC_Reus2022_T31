@@ -1,0 +1,23 @@
+.izquierda {
+    float: left;
+    margin-top: 6%;
+}
+
+.derecha {
+    float: right;
+    width: 50%;
+    margin-right: 15%;
+}
+
+.derecha img {
+    width: 50%;
+}
+
+td img {
+    max-width: 150px;
+    max-height: 120px;
+}
+
+.img {
+    width: 200%;
+}

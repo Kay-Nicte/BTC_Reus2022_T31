@@ -1,1 +1,116 @@
-ejercicio15.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estiloVisorDeImagenes.css">
+
+    <title>Examen JavaScript</title>
+</head>
+
+<body>
+    <div class="izquierda">
+
+        <table class="tabla">
+
+            <tr>
+                <td><img src="../Imagenes/foto1.jpg" onclick="ampliarFoto1()"></td>
+                <td><img src="../Imagenes/foto2.jpg" onclick="ampliarFoto2()"></td>
+            </tr>
+
+            <tr>
+                <td><img src="../Imagenes/foto3.jpg" onclick="ampliarFoto3()"></td>
+                <td><img src="../Imagenes/foto4.jpg" onclick="ampliarFoto4()"></td>
+            </tr>
+            <tr>
+                <td><img src="../Imagenes/foto5.jpg" onclick="ampliarFoto5()"></td>
+                <td><img src="../Imagenes/foto6.jpg" onclick="ampliarFoto6()"></td>
+            </tr>
+            <tr>
+                <td><img src="../Imagenes/foto7.jpg" onclick="ampliarFoto7()"></td>
+                <td><img src="../Imagenes/foto8.jpg" onclick="ampliarFoto8()"></td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div class="derecha" id="derecha">
+        <h1>
+            <center>Visor de imágenes</center>
+        </h1>
+        <div class="img" id="img"></div>
+        <div class="frase" id="frase"></div>
+    </div>
+    <br><br>
+
+
+    <script>
+        const foto1 = "<img src='../Imagenes/foto1.jpg'>";
+        const frase1 = "<center>1. India - Agra - El Taj Majal</center>"
+
+        const foto2 = "<img src='../Imagenes/foto2.jpg'>";
+        const frase2 = "<center>2. Terrero agrario </center>"
+
+        const foto3 = "<img src='../Imagenes/foto3.jpg'>";
+        const frase3 = "<center>3. Athenas - El Partenón</center>"
+
+        const foto4 = "<img src='../Imagenes/foto4.jpg'>";
+        const frase4 = "<center>4. Barco</center>"
+
+        const foto5 = "<img src='../Imagenes/foto5.jpg'>";
+        const frase5 = "<center>3. Athenas - El Partenón</center>"
+
+        const foto6 = "<img src='../Imagenes/foto6.jpg'>";
+        const frase6 = "<center>6. Egipto - Templo de Ramsés II</center>"
+
+        const foto7 = "<img src='../Imagenes/foto7.jpg'>";
+        const frase7 = "<center>7. Edificio parecido al Ayuntamiento de Valladolid</center>"
+
+        const foto8 = "<img src='../Imagenes/foto8.jpg'>";
+        const frase8 = "<center>8. Acueducto</center>"
+
+        function ampliarFoto1() {
+            document.getElementById("img").innerHTML = foto1;
+            document.getElementById("frase").innerHTML = frase1;
+        }
+
+        function ampliarFoto2() {
+            document.getElementById("img").innerHTML = foto2;
+            document.getElementById("frase").innerHTML = frase2;
+        }
+
+        function ampliarFoto3() {
+            document.getElementById("img").innerHTML = foto3;
+            document.getElementById("frase").innerHTML = frase3;
+        }
+
+        function ampliarFoto4() {
+            document.getElementById("img").innerHTML = foto4;
+            document.getElementById("frase").innerHTML = frase4;
+        }
+
+        function ampliarFoto5() {
+            document.getElementById("img").innerHTML = foto5;
+            document.getElementById("frase").innerHTML = frase5;
+        }
+
+        function ampliarFoto6() {
+            document.getElementById("img").innerHTML = foto6;
+            document.getElementById("frase").innerHTML = frase6;
+        }
+
+        function ampliarFoto7() {
+            document.getElementById("img").innerHTML = foto7;
+            document.getElementById("frase").innerHTML = frase7;
+        }
+
+        function ampliarFoto8() {
+            document.getElementById("img").innerHTML = foto8;
+            document.getElementById("frase").innerHTML = frase8;
+        }
+    </script>
+</body>
+
+</html>
