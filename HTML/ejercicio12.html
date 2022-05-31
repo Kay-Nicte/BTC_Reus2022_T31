@@ -174,7 +174,38 @@
     <!-- Confeccionaremos una página que muestre un párrafo, luego una tabla que contenga dos párrafos y por último otra tabla que contenga dos párrafos. Capturaremos el evento click de todos los párrafos del documento y mostraremos un mensaje indicando: 'se presionó un párrafo del documento', también capturaremos el evento click de los dos párrafos de la segunda tabla y mostraremos: 'se presionó un párrafo contenido en la segunda tabla'. -->
     <p id="trece"></p>
 
+    <p class="parrafo" onclick="parrafo()"><b>Párrafo 1: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, neque quam eum blanditiis soluta incidunt placeat molestiae eaque natus inventore debitis, cupiditate quos dolorem deserunt. Saepe nesciunt corrupti quis consequatur.</p>
+
+    <table border="1" cellspacing="0" cell>
+        <th>Tabla 1-P1</th>
+        <th>Tabla 1-P2</th>
+        <tr>
+            <td class="pTabla1" onclick="parrafoTablaUno()">Primer párrafo clicable</td>
+            <td class="pTabla1" onclick="parrafoTablaUno()">Segundo párrafo clicable</td>
+        </tr>
+    </table>
+    <br><br>
+    <table border=" 1 " cellspacing="0 " cell>
+        <th>Tabla 2-P1</th>
+        <th>Tabla 2-P2</th>
+        <tr>
+            <td class="pTabla2" onclick="parrafoTablaDos()">Primer párrafo clicable</td>
+            <td class="pTabla2" onclick="parrafoTablaDos()">Segundo párrafo clicable</td>
+        </tr>
+    </table>
+
     <script>
+        function parrafo() {
+            alert('Se presionó un párrafo del documento');
+        }
+
+        function parrafoTablaUno() {
+            alert('Se presionó un párrafo de la primera tabla');
+        }
+
+        function parrafoTablaDos() {
+            alert('Se presionó un párrafo de la segunda tabla');
+        }
     </script>
 </body>
 
