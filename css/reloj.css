@@ -1,0 +1,11 @@
+#reloj {
+    display: inline-flex;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: space-around;
+    align-items: center;
+    border: solid black;
+    height: 30px;
+    width: 20%;
+    font-size: large;
+}
