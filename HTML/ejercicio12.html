@@ -11,11 +11,14 @@
 <body>
 
     <!-- Crear una expresión regular que valide una fecha en formato "XX/XX/XXXX", donde "X" es un dígito. Probarlo con la expresión: "Nací el 05/04/1982 en Donostia.". -->
+    <h1>Ejercicio 12.1</h1>
+    <p id="doceUno"></p>
 
     <script>
         let frase = "Nací el 05/04/1982 en Donostia.";
         let fecha = [];
         let expresion = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+        let uno = document.getElementById("doceUno");
 
         //Función para discriminar la parte de la frase que tiene la fecha
         function validarFecha(valor) {
@@ -30,14 +33,148 @@
 
             //Validar la fecha mediante expresión regular
             if (expresion.test(fecha)) {
-                document.write('La fecha introducida (' + fecha + ') es correcta.');
+                uno.innerHTML = ('La fecha introducida (' + fecha + ') es correcta.');
             } else {
-                document.write('Error. Formato inválido.');
+                uno.innerHTML = ('Error. Formato inválido.');
             }
         }
 
         //Invocar la función validarFecha()
         validarFecha(frase);
+    </script>
+
+    <h1>Ejercicio 12.2</h1>
+    <!-- Crear una expresión regular que valide una dirección de email. Para simplificar, los valores antes de la @ pueden contener cualquier caracter alfanumérico, y los caracteres . y -, mientras que los valores tras la @ pueden contener caracteres alfanuméricos, y el tipo de dominio puede tener una longitud de 2 ó 3 caracteres. -->
+    <p id="doceDos"></p>
+
+    <script>
+        let email = 'isaea19@gmail.com';
+        let expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let dos = document.getElementById("doceDos");
+
+        //Función para validar el email
+        function validarEmail(valor) {
+            if (expresionEmail.test(valor)) {
+                dos.innerHTML = ("El email introducido (" + valor + ") es válido.");
+            } else {
+                console.log(("Error. Email inválido."));
+            }
+        }
+
+        //Invocar la función validarEmail
+        validarEmail(email);
+    </script>
+
+    <h1>Ejercicio 12.3</h1>
+    <!-- Dada la siguiente función que de reemplazo de caracteres, reescribirla utilizando expresiones regulares -->
+    <p id="doceTres"></p>
+
+    <script>
+        let tres = document.getElementById("doceTres");
+
+        function escapeHTML(text) {
+            var replacements = [
+                ["&", "&amp;"],
+                ["\"", "&quot;"],
+                ["<", "&lt;"],
+                [">", "&gt;"]
+            ];
+
+            forEach(replacements, function(replace) {
+                text = text.replace(replace[0], replace[1]);
+
+            });
+            return text;
+            tres.innerHTML = text;
+        }
+    </script>
+
+    <h1>Ejercicio 12.4</h1>
+    <!-- Dados un nombre y un apellido, crear la expresión regular necesaria para mostrarlos en orden inverso y separados por una coma. Por ejemplo, la cadena "John Smith", convertirla en "Smith, John". -->
+    <p id="doceCuatro"></p>
+
+    <script>
+        let fraseNormal = "John Smith";
+        let fraseInvertida = [];
+        let cuatro = document.getElementById("doceCuatro");
+
+        cuatro.innerHTML += "Frase original: " + fraseNormal + "</br>";
+
+        function invertirFrase(fraseNormal) {
+
+            for (i = 0; i < fraseNormal.length; i++) {
+
+                //Si se encuenetra un espacio en la cadena...
+                if (fraseNormal.charAt(i) == ' ') {
+                    //...guardar en el array fraseInvertida lo que va antes y lo que va después del espacio
+                    fraseInvertida.push(fraseNormal.substring(0, i));
+                    fraseInvertida.push(fraseNormal.substring(i + 1, fraseNormal.length));
+                }
+            }
+            cuatro.innerHTML += ("Frase invertida: " + fraseInvertida[1] + ", " + fraseInvertida[0]);
+
+        }
+        //Invocar la función invertirFrase
+        invertirFrase(fraseNormal);
+    </script>
+
+    <h1>Ejercicio 12.5</h1>
+    <!-- Crear una expresión regular que elimine las etiquetas potencialmente peligrosas (<script> ... </script>) y todo su contenido de una cadena HTML. -->
+    <p id="doceCinco"></p>
+
+    <script>
+        let frasePeligrosa = 'Vamos a borrar el script de esta frase <script> .';
+        let codigoScript = [0];
+
+
+        //Buscar el principio y el final del script y reemplazarlo por un espacio 
+
+        let index = frasePeligrosa.indexOf('<script>');
+        let indexFinal = frasePeligrosa.lastIndexOf('<script>');
+        let espacio = ' ';
+
+
+        //Función para reemplazar el script por un espacio
+
+        function replaceBetween(frasePeligrosa, index, indexFinal, espacio) {
+
+            return frasePeligrosa.substring(0, index) + espacio + origin.substring(indexFinal);
+            doceCinco.innerHTML += (frasePeligrosa);
+        }
+
+        //Invocar la función replaceBetween
+
+        replaceBetween(frasePeligrosa, index, indexFinal, espacio);
+
+        //Guardar el script en un array
+
+        function eliminarScript(frasePeligrosa) {
+            for (i = 0; i < frasePeligrosa.length; i++) {
+                if (frasePeligrosa.charAt(i) == '<') {
+                    if (frasePeligrosa.charAt(i + 1) == 's' && frasePeligrosa.charAt(i + 2) == 'c' &&
+                        frasePeligrosa.charAt(i + 3) == 'r' && frasePeligrosa.charAt(i + 4) == 'i') {
+                        for (let x = i; x < frasePeligrosa.length; x++) {
+                            if (frasePeligrosa.charAt(x) == '<') {
+                                if (frasePeligrosa.charAt(x + 1) == '/' && frasePeligrosa.charAt(x + 2) == 's' &&
+                                    frasePeligrosa.charAt(x + 3) == 'c' && frasePeligrosa.charAt(x + 4) == 'r') {
+                                    codigoScript.push(frasePeligrosa.substring(i, x + 9))
+                                    frasePeligrosa.replace(codigoScript, ' ');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            doceCinco.innerHTML += (frasePeligrosa);
+        }
+        eliminarScript(frasePeligrosa);
+    </script>
+
+    <h1>Ejercicio 13</h1>
+    <!-- Confeccionaremos una página que muestre un párrafo, luego una tabla que contenga dos párrafos y por último otra tabla que contenga dos párrafos. Capturaremos el evento click de todos los párrafos del documento y mostraremos un mensaje indicando: 'se presionó un párrafo del documento', también capturaremos el evento click de los dos párrafos de la segunda tabla y mostraremos: 'se presionó un párrafo contenido en la segunda tabla'. -->
+    <p id="trece"></p>
+
+    <script>
     </script>
 </body>
 
